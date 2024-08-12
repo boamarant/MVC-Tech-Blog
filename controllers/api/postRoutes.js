@@ -1,7 +1,7 @@
 // Import requirements
 const router = require('express').Router();
-const { Post, Comment } = require('../models');
-const withAuth = require('../utils/auth');
+const { Post, Comment } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 // GET route to view a single post by ID
 router.get('/post/:id', async (req, res) => {
