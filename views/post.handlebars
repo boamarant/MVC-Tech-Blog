@@ -1,0 +1,17 @@
+<h1>{{post.title}}</h1>
+<p>{{post.content}}</p>
+<p>Posted by: {{post.user.username}} on {{post.createdAt}}</p>
+
+<h3>Comments:</h3>
+{{#each post.comments}}
+  <div class="comment">
+    <p>{{this.content}} - {{this.user.username}} on {{this.createdAt}}</p>
+  </div>
+{{/each}}
+
+{{#if loggedIn}}
+  <form action="/posts/{{post.id}}/comment" method="POST">
+    <textarea name="content" required></textarea>
+    <button type="submit">Add Comment</button>
+  </form>
+{{/if}}

@@ -21,7 +21,8 @@ app.use(express.static('public'));
 app.use(session(sess));
 
 // Initializes handlebars as the view engine
-app.engine('handlebars', exphbs());
+const hbs = exphbs.create({});
+app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 // Uses routes directory for routes
@@ -29,5 +30,5 @@ app.use(routes);
 
 // Starts express server
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log(`Now listening on port ${PORT}`));
+  app.listen(PORT, () => console.log(`Now listening on http://localhost:${PORT}`));
 });

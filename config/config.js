@@ -1,7 +1,7 @@
 // Import requirements
-const SequelizeStore = require('connect-session-sequelize')(session.Store);
-const session = require('express-session');
 const Sequelize = require('sequelize');
+const session = require('express-session');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 require('dotenv').config();
 
 // Create new sequelize instance
